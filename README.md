@@ -1,3 +1,5 @@
+# EnvShare
+
 <div align="center">
     <h1 align="center">EnvShare</h1>
     <h5>Share Environment Variables Securely</h5>
@@ -32,6 +34,17 @@ key never leaves your browser.
 - [tailwindcss](https://tailwindcss.com)
 - Deployed on [Vercel](https://vercel.com?utm_source=envshare)
 - Data stored on [Upstash](https://upstash.com?utm_source=envshare)
+
+## Local Development
+
+1. Clone this repository
+2. Install dependencies with `npm install` or `pnpm install`
+3. Create a `.env.local` file with the following variables:
+   ```
+   UPSTASH_REDIS_REST_URL=your_upstash_redis_url
+   UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_token
+   ```
+4. Start the development server with `npm run dev` or `pnpm dev`
 
 ## Deploy your own
 
