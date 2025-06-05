@@ -1,8 +1,0 @@
-{
-  "pages": {},
-  "app": {
-    "/home/project/node_modules/.pnpm/@next+font@13.1.1/node_modules/@next/font/google/target.css?{\"arguments\":[{\"subsets\":[\"latin\"],\"variable\":\"--font-inter\"}],\"import\":\"Inter\",\"path\":\"app/layout.tsx\",\"variableName\":\"inter\"}": [
-      "static/media/e4af272ccee01ff0.p.woff2"
-    ]
-  }
-}
