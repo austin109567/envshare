@@ -1,5 +1,4 @@
 {
   "/page": "app/page.js",
-  "/unseal/page": "app/unseal/page.js",
   "/share/page": "app/share/page.js"
 }
