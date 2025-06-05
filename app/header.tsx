@@ -31,7 +31,7 @@ export const Header: React.FC = () => {
           <nav className="flex items-center grow">
             <ul className="flex flex-wrap items-center justify-end gap-4 grow">
               {navigation.map((item) => (
-                <li className="" key={item.href}>
+                <li className="\" key={item.href}>
                   <Link
                     className={`flex items-center px-3 py-2 duration-150 text-sm sm:text-base hover:text-burnt-orange-400
                     ${pathname === item.href ? "text-zinc-200" : "text-zinc-400"}`}
