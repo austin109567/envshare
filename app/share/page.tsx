@@ -61,21 +61,21 @@ export default function Home() {
         <div className="flex flex-col items-center justify-center w-full h-full mt-8 md:mt-16 xl:mt-32">
           <Title>Share this link with others</Title>
           <div className="relative flex items-stretch flex-grow mt-16 focus-within:z-10">
-            <pre className="px-4 py-3 font-mono text-center bg-transparent border rounded border-zinc-600 focus:border-zinc-100/80 focus:ring-0 sm:text-sm text-zinc-100">
+            <pre className="px-4 py-3 font-mono text-center bg-transparent border rounded border-burnt-orange-500/40 focus:border-burnt-orange-500 focus:ring-0 sm:text-sm text-zinc-100">
               {link}
             </pre>
             <button
               type="button"
-              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border text-zinc-700 border-zinc-300 rounded-r-md bg-zinc-50 hover focus:border-zinc-500 focus:outline-none focus:ring-1 focus:ring-zinc-500 hover:text-zinc-900 hover:bg-white"
+              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border rounded-r-md text-zinc-700 border-burnt-orange-500/40 bg-burnt-orange-50/10 hover:bg-burnt-orange-100/20 focus:border-burnt-orange-500 focus:outline-none focus:ring-1 focus:ring-burnt-orange-500 hover:text-zinc-900"
               onClick={() => {
                 navigator.clipboard.writeText(link);
                 setCopied(true);
               }}
             >
               {copied ? (
-                <ClipboardDocumentCheckIcon className="w-5 h-5" aria-hidden="true" />
+                <ClipboardDocumentCheckIcon className="w-5 h-5\" aria-hidden="true" />
               ) : (
-                <ClipboardDocumentIcon className="w-5 h-5" aria-hidden="true" />
+                <ClipboardDocumentIcon className="w-5 h-5\" aria-hidden="true" />
               )}{" "}
               <span>{copied ? "Copied" : "Copy"}</span>
             </button>
@@ -92,7 +92,7 @@ export default function Home() {
         >
           <Title>Encrypt and Share</Title>
 
-          <pre className="px-4 py-3 mt-8 font-mono text-left bg-transparent border rounded border-zinc-600 focus:border-zinc-100/80 focus:ring-0 sm:text-sm text-zinc-100">
+          <pre className="px-4 py-3 mt-8 font-mono text-left bg-transparent border rounded border-burnt-orange-500/40 focus:border-burnt-orange-500/80 focus:ring-0 sm:text-sm text-zinc-100">
             <div className="flex items-start px-1 text-sm">
               <div aria-hidden="true" className="pr-4 font-mono border-r select-none border-zinc-300/5 text-zinc-700">
                 {Array.from({
@@ -121,7 +121,7 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center w-full gap-4 mt-4 sm:flex-row">
             <div className="w-full sm:w-1/5">
               <label
-                className="flex items-center justify-center h-16 px-3 py-2 text-sm whitespace-no-wrap duration-150 border rounded hover:border-zinc-100/80 border-zinc-600 focus:border-zinc-100/80 focus:ring-0 text-zinc-100 hover:text-white hover:cursor-pointer "
+                className="flex items-center justify-center h-16 px-3 py-2 text-sm whitespace-no-wrap duration-150 border rounded hover:border-burnt-orange-500/60 border-burnt-orange-500/40 focus:border-burnt-orange-500/80 focus:ring-0 text-zinc-100 hover:text-white hover:cursor-pointer"
                 htmlFor="file_input"
               >
                 Upload a file
@@ -147,7 +147,7 @@ export default function Home() {
               />
             </div>
 
-            <div className="w-full h-16 px-3 py-2 duration-150 border rounded sm:w-2/5 hover:border-zinc-100/80 border-zinc-600 focus-within:border-zinc-100/80 focus-within:ring-0 ">
+            <div className="w-full h-16 px-3 py-2 duration-150 border rounded sm:w-2/5 hover:border-burnt-orange-500/60 border-burnt-orange-500/40 focus-within:border-burnt-orange-500/80 focus-within:ring-0">
               <label htmlFor="reads" className="block text-xs font-medium text-zinc-100">
                 READS
               </label>
@@ -160,7 +160,7 @@ export default function Home() {
                 onChange={(e) => setReads(e.target.valueAsNumber)}
               />
             </div>
-            <div className="relative w-full h-16 px-3 py-2 duration-150 border rounded sm:w-2/5 hover:border-zinc-100/80 border-zinc-600 focus-within:border-zinc-100/80 focus-within:ring-0 ">
+            <div className="relative w-full h-16 px-3 py-2 duration-150 border rounded sm:w-2/5 hover:border-burnt-orange-500/60 border-burnt-orange-500/40 focus-within:border-burnt-orange-500/80 focus-within:ring-0">
               <label htmlFor="reads" className="block text-xs font-medium text-zinc-100">
                 TTL
               </label>
@@ -191,10 +191,10 @@ export default function Home() {
           <button
             type="submit"
             disabled={loading || text.length <= 0}
-            className={`mt-6 w-full h-12 inline-flex justify-center items-center  transition-all  rounded px-4 py-1.5 md:py-2 text-base font-semibold leading-7    bg-zinc-200 ring-1 ring-transparent duration-150   ${
+            className={`mt-6 w-full h-12 inline-flex justify-center items-center transition-all rounded px-4 py-1.5 md:py-2 text-base font-semibold leading-7 bg-burnt-orange-500 text-white ring-1 ring-burnt-orange-500 duration-150 ${
               text.length <= 0
-                ? "text-zinc-400 cursor-not-allowed"
-                : "text-zinc-900 hover:text-zinc-100 hover:ring-zinc-600/80  hover:bg-zinc-900/20"
+                ? "text-zinc-400 cursor-not-allowed opacity-50"
+                : "hover:bg-burnt-orange-600 hover:ring-burnt-orange-600"
             } ${loading ? "animate-pulse" : ""}`}
           >
             <span>{loading ? <Cog6ToothIcon className="w-5 h-5 animate-spin" /> : "Share"}</span>

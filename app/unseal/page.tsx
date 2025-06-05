@@ -57,7 +57,7 @@ export default function Unseal() {
   };
 
   return (
-    <div className="container px-8 mx-auto mt-16 lg:mt-32 ">
+    <div className="container px-8 mx-auto mt-16 lg:mt-32">
       {error ? <ErrorMessage message={error} /> : null}
       {text ? (
         <div className="max-w-4xl mx-auto">
@@ -65,7 +65,7 @@ export default function Unseal() {
             <div className="text-sm text-center text-zinc-600">
               {remainingReads > 0 ? (
                 <p>
-                  This document can be read <span className="text-zinc-100">{remainingReads}</span> more times.
+                  This document can be read <span className="text-burnt-orange-400">{remainingReads}</span> more times.
                 </p>
               ) : (
                 <p className="text-zinc-400">
@@ -74,7 +74,7 @@ export default function Unseal() {
               )}
             </div>
           ) : null}
-          <pre className="px-4 py-3 mt-8 font-mono text-left bg-transparent border rounded border-zinc-600 focus:border-zinc-100/80 focus:ring-0 sm:text-sm text-zinc-100">
+          <pre className="px-4 py-3 mt-8 font-mono text-left bg-transparent border rounded border-burnt-orange-500/40 focus:border-burnt-orange-500/80 focus:ring-0 sm:text-sm text-zinc-100">
             <div className="flex items-start px-1 text-sm">
               <div aria-hidden="true" className="pr-4 font-mono border-r select-none border-zinc-300/5 text-zinc-700">
                 {Array.from({
@@ -98,22 +98,22 @@ export default function Unseal() {
             <Link
               href="/share"
               type="button"
-              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border rounded text-zinc-300 border-zinc-300/40 hover:border-zinc-300 focus:outline-none hover:text-white"
+              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border rounded text-zinc-300 border-burnt-orange-500/40 hover:border-burnt-orange-500/60 hover:bg-burnt-orange-500/10 focus:outline-none hover:text-white"
             >
               Share another
             </Link>
             <button
               type="button"
-              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border rounded text-zinc-700 border-zinc-300 bg-zinc-50 hover focus:border-zinc-500 focus:outline-none hover:text-zinc-50 hover:bg-zinc-900"
+              className="relative inline-flex items-center px-4 py-2 -ml-px space-x-2 text-sm font-medium duration-150 border rounded text-zinc-700 border-burnt-orange-500/40 bg-burnt-orange-500/10 hover:bg-burnt-orange-500/20 focus:border-burnt-orange-500 focus:outline-none hover:text-zinc-50"
               onClick={() => {
                 navigator.clipboard.writeText(text);
                 setCopied(true);
               }}
             >
               {copied ? (
-                <ClipboardDocumentCheckIcon className="w-5 h-5" aria-hidden="true" />
+                <ClipboardDocumentCheckIcon className="w-5 h-5\" aria-hidden="true" />
               ) : (
-                <ClipboardDocumentIcon className="w-5 h-5" aria-hidden="true" />
+                <ClipboardDocumentIcon className="w-5 h-5\" aria-hidden="true" />
               )}{" "}
               <span>{copied ? "Copied" : "Copy"}</span>
             </button>
@@ -121,7 +121,7 @@ export default function Unseal() {
         </div>
       ) : (
         <form
-          className="max-w-3xl mx-auto "
+          className="max-w-3xl mx-auto"
           onSubmit={(e) => {
             e.preventDefault();
             onSubmit();
@@ -129,7 +129,7 @@ export default function Unseal() {
         >
           <Title>Decrypt a document</Title>
 
-          <div className="px-3 py-2 mt-8 border rounded border-zinc-600 focus-within:border-zinc-100/80 focus-within:ring-0 ">
+          <div className="px-3 py-2 mt-8 border rounded border-burnt-orange-500/40 focus-within:border-burnt-orange-500/80 focus-within:ring-0">
             <label htmlFor="id" className="block text-xs font-medium text-zinc-100">
               ID
             </label>
@@ -146,7 +146,7 @@ export default function Unseal() {
           <button
             type="submit"
             disabled={loading}
-            className={`mt-8 w-full h-12 inline-flex justify-center items-center  transition-all  rounded px-4 py-1.5 md:py-2 text-base font-semibold leading-7 text-zinc-800   bg-zinc-200 ring-1  duration-150  hover:text-black hover:drop-shadow-cta   hover:bg-white ${
+            className={`mt-8 w-full h-12 inline-flex justify-center items-center transition-all rounded px-4 py-1.5 md:py-2 text-base font-semibold leading-7 text-white bg-burnt-orange-500 ring-1 ring-burnt-orange-500 duration-150 hover:bg-burnt-orange-600 hover:ring-burnt-orange-600 ${
               loading ? "animate-pulse" : ""
             }`}
           >
