@@ -1,8 +1,16 @@
 import { Redis } from "@upstash/redis";
 
+// Create a more robust Redis connection that handles connection errors properly
 const redis = (() => {
   try {
-    return Redis.fromEnv();
+    // Only create the Redis client if the environment variables are available
+    if (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) {
+      return new Redis({
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN,
+      });
+    }
+    return null;
   } catch (error) {
     console.warn("Redis connection error:", error.message);
     return null;
@@ -35,11 +43,19 @@ export const Stats = asyncComponent(async () => {
       );
     }
 
-    const [reads, writes] = await redis
-      .pipeline()
-      .get("envshare:metrics:reads")
-      .get("envshare:metrics:writes")
-      .exec<[number, number]>();
+    // Get reads and writes from Redis if available
+    let reads = 0;
+    let writes = 0;
+    
+    try {
+      [reads, writes] = await redis
+        .pipeline()
+        .get("envshare:metrics:reads")
+        .get("envshare:metrics:writes")
+        .exec<[number, number]>();
+    } catch (error) {
+      console.warn("Error fetching Redis metrics:", error);
+    }
     
     let stars;
     try {
@@ -74,7 +90,7 @@ export const Stats = asyncComponent(async () => {
           {stats.map(({ label, value }) => (
             <li
               key={label}
-              className="flex items-center justify-between gap-2 px-4 py-3 overflow-hidden rounded m sm:flex-col"
+              className="flex items-center justify-between gap-2 px-4 py-3 overflow-hidden rounded border border-burnt-orange-500/30 sm:flex-col"
             >
               <dd className="text-2xl font-bold tracking-tight text-center sm:text-5xl text-zinc-200">
                 {Intl.NumberFormat("en-US", { notation: "compact" }).format(value)}
